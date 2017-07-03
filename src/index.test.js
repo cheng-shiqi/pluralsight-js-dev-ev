@@ -14,16 +14,15 @@ describe('test test', function() {
 
 describe('index.html', function() {
     // body...
-    it('should be hello world', function(done) {
+    it('should be Users', function(done) {
         const index = fs.readFileSync('./src/index.html', 'utf-8')
 
-        // const dom = new JSDOM(`<!DOCTYPE html><p>Hello world</p>`)
         const dom = new JSDOM(index)
         // 如果只用到 JSDOM 的 window，可以这样写 const {window} = new JSDOM(index)
         const h1 = dom.window.document.querySelector('h1').firstChild
         const h1Content = h1.textContent
 
-        expect(h1Content).to.be.equal('Hello World')
+        expect(h1Content).to.be.equal('Users')
         done()
         //上面的代码有异步操作，所以需要在这里显示调用 done http://harttle.com/2016/07/12/async-test-with-chai-as-promised.html
 
